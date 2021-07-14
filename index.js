@@ -164,7 +164,7 @@ async function update() {
 let result = await axios.get('https://registry.npmjs.com/-/v1/search?text=foguetecolors')
   if(version == result.data.objects[0].package.version) throw new Error(`Your foguetecolors is alredy up-to-date!`)
   console.log(`Updating foguetecolors...`)
-  await child.exec('npm install foguetecolors@' + result.data.objects[0].package.version)
+  await child.exec('npm install foguetecolors@latest')
 setTimeout(() => {
  console.log(`Now foguetecolors is in ${result.data.objects[0].package.version} version.`)
 }, 9000)
