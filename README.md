@@ -1,22 +1,55 @@
+# Changelog
+
+```js
+Fixed console.exec
+Fixed auto version identifier
+Added searchForUpdates
+Added update
+```
+
+Suggestions/bugs? DM me in Discord [ LEON#1234 ]
+
 # Way of use
 
 ```js
 const FogueteColors = require('foguetecolors')
-console.log(`${FogueteColors.blue('Hello!')}`)
+console.log(`${FogueteColors.colors.blue('Hello!')}`)
 ```
 
 # Avaible colors
 
 ```js
-- blue
-- green
-- pink
-- cyan
-- black
+- colors.blue
+- colors.green
+- colors.pink
+- colors.cyan
+- colors.black
+- colors.orange
+- colors.red
+- colors.gray
+- colors.lightBlue
+- colors.purple
+- colors.cyan
+- colors.underlinedGreen
+- colors.underlinedBlue
+- colors.underlinedWhite
+- colors.underlinedPink
+- colors.underlinedBlack
+- colors.underlinedPurple
+- colors.underlinedCyan
+- colors.underlinedOrange
 
-                       Avaible colors: 5
+- console.exec(command)
+
+- mathematics.calc(number, signal, number2)
+- mathematics.isSign(text)
+- mathematics.isNumber(text)
+
+                    colors: 19
+                    console: 1
+                    mathematics: 3
 ```
 
-# Package scripted in JavaScript 
+# About
 
-# Package by ThePedro
+foguetecolors is a npm that you can use to add colors to your console logs and make calcs!
