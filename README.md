@@ -10,9 +10,7 @@ Added removeNotNumbers
 
 Suggestions/bugs? DM me in Discord [ LEON#1234 ]
 
-# Security Policy
-
-## Supported Versions
+# Supported Versions
 
 | Version      | Supported          |
 | -------      | ------------------ |
