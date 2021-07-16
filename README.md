@@ -1,10 +1,11 @@
 # Changelog
 
 ```js
-Fixed console.exec
-Fixed auto version identifier
-Added searchForUpdates
-Added update
+Otimization
+Added category letters
+Added removeSpecialLetters
+Added removeNumbers
+Added removeNotNumbers
 ```
 
 Suggestions/bugs? DM me in Discord [ LEON#1234 ]
@@ -45,11 +46,19 @@ console.log(`${FogueteColors.colors.blue('Hello!')}`)
 - mathematics.isSign(text)
 - mathematics.isNumber(text)
 
+- update
+- searchForUpdates
+
+- letters.removeSpecialLetters(message)
+- letters.removeNumbers(message)
+- letters.removeNotNumbers(message)
+
                     colors: 19
                     console: 1
                     mathematics: 3
+                    letters: 3
 ```
 
 # About
 
-foguetecolors is a npm that you can use to add colors to your console logs and make calcs!
+foguetecolors is a npm that you can use to add colors to your console logs and make calcs! 
