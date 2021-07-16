@@ -1,6 +1,11 @@
 const child = require('child_process')
 const axios = require('axios')
-const version = '1.1.4' // DO NOT CHANGE THIS
+const version = '1.1.6-beta' // DO NOT CHANGE THIS
+
+function verify(message) {
+    if(message == null) throw new Error('Received null, try changing your code.')
+    if(message == undefined) throw new Error('Received undefined, try changing your code.')
+}
 
 async function verifyVersion() {
   let result = await axios.get('https://registry.npmjs.com/-/v1/search?text=foguetecolors')
@@ -8,117 +13,99 @@ async function verifyVersion() {
 }
 
 function blue(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[34m${message}\u001b[39m`
 }
 
 function green(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  if(message == null) throw new Error(null_message)
+  if(message == undefined) throw new Error(undefined_message)
  return `\u001b[32m${message}\u001b[39m`
 }
 
 function pink(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[31m${message}\u001b[39m`
 }
 
 function cyan(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[36m${message}\u001b[39m`
 }
 
 function black(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[30m${message}\u001b[39m`
 }
 
 function orange(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[33m${message}\u001b[33m`
 }
 
 
 function red(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[31m${message}\u001b[33m`
 }
 
 function gray(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[37m${message}\u001b[33m`
 }
 
 function lightBlue(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[94m${message}\u001b[33m`
 }
 
 function purple(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[95m${message}\u001b[33m`
 }
 
 function cyan(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[96m${message}\u001b[33m`
 }
 
 function underlinedGreen(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[42m${message}\u001b[33m`
 }
 
 function underlinedBlue(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[44m${message}\u001b[33m`
 }
 
 function underlinedWhite(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[47m${message}\u001b[33m`
 }
 
 function underlinedPink(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[41m${message}\u001b[33m`
 }
 
 function underlinedBlack(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[40m${message}\u001b[33m`
 }
 
 function underlinedPurple(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[45m${message}\u001b[33m`
 }
 
 function underlinedCyan(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)  
  return `\u001b[46m${message}\u001b[33m`
 }
 
 function underlinedOrange(message) {
-  if(message == null) throw new Error('Received null, try changing your code.')
-  if(message == undefined) throw new Error('Received undefined, try changing your code.')
+  verify(message)
  return `\u001b[43m${message}\u001b[33m`
 }
 
@@ -151,27 +138,46 @@ function exec(execute) {
   child.exec(exec)
 }
 
+function clearConsole() {
+  child.exec('clear')
+}
+
 async function searchForUpdates() {
+  let isUpdated = false
   let result = await axios.get('https://registry.npmjs.com/-/v1/search?text=foguetecolors')
-  if(version != result.data.objects[0].package.version) {
-    return `Foguetecolors is up-to-date`
-  } else {
-    return `Foguetecolors is out-of-date`
-  }
+  if(version == result.data.objects[0].package.version) isUpdated = true
+  if(isUpdated) throw new Error(`Foguetecolors is up-to-date`)
+  if(!isUpdated) `return Foguetecolors is out-of-date`
 }
 
 async function update() {
 let result = await axios.get('https://registry.npmjs.com/-/v1/search?text=foguetecolors')
-  if(version == result.data.objects[0].package.version) throw new Error(`Your foguetecolors is alredy up-to-date!`)
+ if(version == result.data.objects[0].package.version) throw new Error(`Your foguetecolors is alredy up-to-date!`)
   console.log(`Updating foguetecolors...`)
   await child.exec('npm install foguetecolors@latest')
 setTimeout(() => {
  console.log(`Now foguetecolors is in ${result.data.objects[0].package.version} version.`)
 }, 9000)
 }
-
 verifyVersion()
 
+function removeSpecialLetters(message) {
+  verify(message)
+  if(typeof message != 'string') throw new Error('Oh, sorry, we just support string for remove special letters, but you can suggest.')
+  return message.match(/([\w])/g)
+}
+
+function removeNumbers(message) {
+  verify(message)
+  if(typeof message != 'string') throw new Error('Oh, sorry, we just support string for remove numers, but you can suggest.')
+  return message.match(/([\D])/g)
+}
+
+function removeNotNumbers(message) {
+  verify(message)
+  if(typeof message != 'string') throw new Error('Oh, sorry, we just support string for remove numers, but you can suggest.')
+  return message.match(/([\d])/g)
+}
 
 module.exports = {
 update,
@@ -203,6 +209,12 @@ searchForUpdates,
     isNumber
   },
   console: {
-    exec
-  }
+    exec,
+    clearConsole
+  },
+  letters: {
+    removeSpecialLetters,
+    removeNumbers,
+    removeNotNumbers
+  }  
 }
